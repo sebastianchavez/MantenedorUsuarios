@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PortalAppsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="UsuariosExternos">
+          <Key>
+            <PropertyRef Name="usr_cuenta" />
+          </Key>
+          <Property Name="usr_cuenta" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="usr_password" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="usr_nombre" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="usr_apellido" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="usr_email" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="usr_activo" Type="bit" Nullable="false" />
+          <Property Name="usr_telefono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usr_direccion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="usr_rut" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="usr_dv" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="usr_fecha_act" Type="datetime" Nullable="false" />
+          <Property Name="usr_empresa" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="emp_ciudad" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="emp_telefono" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="emp_region" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="emp_roluni" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="emp_dv" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PortalAppsModelStoreContainer">
+          <EntitySet Name="UsuariosExternos" EntityType="Self.UsuariosExternos" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PortalAppsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PortalAppsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UsuariosExternos" EntityType="PortalAppsModel.UsuariosExternos" />
+        </EntityContainer>
+        <EntityType Name="UsuariosExternos">
+          <Key>
+            <PropertyRef Name="usr_cuenta" />
+          </Key>
+          <Property Name="usr_cuenta" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="usr_password" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="usr_nombre" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="usr_apellido" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="usr_email" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="usr_activo" Type="Boolean" Nullable="false" />
+          <Property Name="usr_telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usr_direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="usr_rut" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="usr_dv" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="usr_fecha_act" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usr_empresa" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="emp_ciudad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="emp_telefono" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="emp_region" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="emp_roluni" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="emp_dv" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PortalAppsModelStoreContainer" CdmEntityContainer="PortalAppsEntities">
+          <EntitySetMapping Name="UsuariosExternos">
+            <EntityTypeMapping TypeName="PortalAppsModel.UsuariosExternos">
+              <MappingFragment StoreEntitySet="UsuariosExternos">
+                <ScalarProperty Name="emp_dv" ColumnName="emp_dv" />
+                <ScalarProperty Name="emp_roluni" ColumnName="emp_roluni" />
+                <ScalarProperty Name="emp_region" ColumnName="emp_region" />
+                <ScalarProperty Name="emp_telefono" ColumnName="emp_telefono" />
+                <ScalarProperty Name="emp_ciudad" ColumnName="emp_ciudad" />
+                <ScalarProperty Name="usr_empresa" ColumnName="usr_empresa" />
+                <ScalarProperty Name="usr_fecha_act" ColumnName="usr_fecha_act" />
+                <ScalarProperty Name="usr_dv" ColumnName="usr_dv" />
+                <ScalarProperty Name="usr_rut" ColumnName="usr_rut" />
+                <ScalarProperty Name="usr_direccion" ColumnName="usr_direccion" />
+                <ScalarProperty Name="usr_telefono" ColumnName="usr_telefono" />
+                <ScalarProperty Name="usr_activo" ColumnName="usr_activo" />
+                <ScalarProperty Name="usr_email" ColumnName="usr_email" />
+                <ScalarProperty Name="usr_apellido" ColumnName="usr_apellido" />
+                <ScalarProperty Name="usr_nombre" ColumnName="usr_nombre" />
+                <ScalarProperty Name="usr_password" ColumnName="usr_password" />
+                <ScalarProperty Name="usr_cuenta" ColumnName="usr_cuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
